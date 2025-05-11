@@ -11,7 +11,7 @@ import {
 
 export function Footer() {
   return (
-    <footer className="bg-card shadow-inner border-t">
+    <footer className="bg-gray-100 dark:bg-gray-900 border-t">
       <div className="container mx-auto py-12 px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -105,7 +105,7 @@ export function Footer() {
           
           {/* Quick Links */}
           <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Information</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

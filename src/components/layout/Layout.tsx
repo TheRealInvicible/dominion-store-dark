@@ -6,10 +6,10 @@ import { ShoppingCart } from "../ShoppingCart";
 
 const Layout = () => {
   return (
-    <div className="min-h-screen flex flex-col dark:bg-slate-950 bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950">
       <Navbar />
       <ShoppingCart />
-      <main className="flex-grow container mx-auto py-8">
+      <main className="flex-grow w-full">
         <Outlet />
       </main>
       <Footer />

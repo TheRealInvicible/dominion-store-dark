@@ -48,9 +48,14 @@ export function Navbar() {
       className={`sticky top-0 z-40 w-full transition-all duration-200 ${
         isScrolled
           ? "bg-background/80 backdrop-blur-lg shadow-sm border-b"
-          : ""
+          : "border-b"
       }`}
     >
+      {/* Top bar with offers */}
+      <div className="bg-blue-600 text-white text-center py-1 text-xs">
+        Free Shipping on orders above ₹599 | 30 Day Returns
+      </div>
+      
       <div className="container mx-auto">
         <div className="flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-6">
@@ -58,32 +63,22 @@ export function Navbar() {
               <span className="text-2xl font-bold text-brand">DOMINION</span>
               <span className="ml-1 text-xl font-semibold">STORE</span>
             </Link>
+          </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6">
-              {categories.map((category) => (
-                <Link
-                  key={category.path}
-                  to={category.path}
-                  className="text-sm font-medium transition-colors hover:text-foreground/80"
-                >
-                  {category.name}
-                </Link>
-              ))}
-            </nav>
+          {/* Search bar in center */}
+          <div className="hidden md:flex flex-1 max-w-md mx-6">
+            <div className="relative w-full">
+              <input
+                type="text"
+                placeholder="Search products..."
+                className="w-full border rounded-md py-2 pl-10 pr-4"
+              />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            </div>
           </div>
 
           {/* Right side icons */}
           <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Search"
-              className="rounded-full"
-            >
-              <Search className="h-5 w-5" />
-            </Button>
-
             <ThemeToggle />
 
             <Button
@@ -157,6 +152,19 @@ export function Navbar() {
             </Button>
           </div>
         </div>
+
+        {/* Category navigation */}
+        <nav className="hidden md:flex items-center border-t py-2 px-4">
+          {categories.map((category) => (
+            <Link
+              key={category.path}
+              to={category.path}
+              className="text-sm font-medium px-3 py-1 transition-colors hover:text-foreground/80"
+            >
+              {category.name}
+            </Link>
+          ))}
+        </nav>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
